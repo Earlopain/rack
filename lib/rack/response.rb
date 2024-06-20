@@ -110,7 +110,7 @@ module Rack
         close
         return [@status, @headers, []]
       else
-        if @length && @length > 0 && !chunked?
+        if @length && !chunked?
           set_header CONTENT_LENGTH, @length.to_s
         end
 

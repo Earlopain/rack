@@ -603,6 +603,13 @@ describe Rack::Response do
     res.headers["content-length"].must_equal "8"
   end
 
+  it "returns content-length 0 when the response body is empty" do
+    res = Rack::Response.new
+    res.write ""
+    res.finish
+    res.headers["content-length"].must_equal "0"
+  end
+
   it "does not wrap body" do
     body = Object.new
     res = Rack::Response.new(body)

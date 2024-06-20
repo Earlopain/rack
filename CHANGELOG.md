@@ -17,6 +17,12 @@ All notable changes to this project will be documented in this file. For info on
 - `Rack::Request#values_at` is removed. ([#2200](https://github.com/rack/rack/pull/2200), [@ioquatix])
 - `Rack::Logger` is removed with no replacement. ([#2196](https://github.com/rack/rack/pull/2196), [@ioquatix])
 
+## [3.1.4] - Unreleased
+
+### Fixed
+
+- Correctly return a `content-length` of `0` if the response body is empty. ([#2219](https://github.com/rack/rack/pull/2219), [@earlopain])
+
 ## [3.1.3] - 2024-06-12
 
 ### Fixed
