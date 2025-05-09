@@ -11,7 +11,7 @@ module Rack
 
   class MockResponse < Rack::Response
     if RUBY_VERSION >= '3.0'
-      class Cookie
+      class Cookie2
         attr_reader :name, :value, :path, :domain, :expires, :secure
 
         def initialize(args)
@@ -36,7 +36,7 @@ module Rack
       end
     else
       require 'cgi/cookie'
-      Cookie = CGI::Cookie
+      Cookie2 = CGI::Cookie
     end
 
     class << self
@@ -111,7 +111,7 @@ module Rack
         Array(set_cookie_header).each do |cookie|
           cookie_name, cookie_filling = cookie.split('=', 2)
           cookie_attributes = identify_cookie_attributes cookie_filling
-          parsed_cookie = Cookie.new(
+          parsed_cookie = Cookie2.new(
             'name' => cookie_name.strip,
             'value' => cookie_attributes.fetch('value'),
             'path' => cookie_attributes.fetch('path', nil),
