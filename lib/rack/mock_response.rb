@@ -10,7 +10,7 @@ module Rack
   # MockRequest.
 
   class MockResponse < Rack::Response
-    if RUBY_VERSION >= '3.5'
+    if RUBY_VERSION >= '3.0'
       class Cookie
         attr_reader :name, :value, :path, :domain, :expires, :secure
 
